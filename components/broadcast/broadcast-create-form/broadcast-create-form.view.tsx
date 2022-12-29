@@ -4,12 +4,12 @@ import { Button } from '../../ui/button/button'
 import { Col } from '../../ui/col/col'
 import { Info } from '../../ui/info/info'
 import { Label } from '../../ui/label/label'
-import { ShowCreateFormResult } from './show-create-form'
+import { BroadcastCreateFormResult } from './broadcast-create-form'
 const MarkdownEditor = dynamic(() => import('@uiw/react-md-editor'), {
   ssr: false,
 })
 
-export const ShowCreateFormView: FC<ShowCreateFormResult> = ({
+export const BroadcastCreateFormView: FC<BroadcastCreateFormResult> = ({
   channel,
   t,
   fields,

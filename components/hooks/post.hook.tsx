@@ -24,23 +24,27 @@ export function usePost<T>(url: string): {
 
   async function handlePost(body: Object, newUrl?: string) {
     setLoading(true)
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL_API}/${newUrl || url}`,
-      {
-        method: 'POST',
-        signal: abortController.signal,
-        headers: {
-          Accept: 'application/json',
-          Authorization: 'Bearer ' + session.token_api,
-        },
-        body: JSON.stringify(body || {}),
-      }
-    )
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_URL_API}/${newUrl || url}`,
+        {
+          method: 'POST',
+          signal: abortController.signal,
+          headers: {
+            Accept: 'application/json',
+            Authorization: 'Bearer ' + session.token_api,
+          },
+          body: JSON.stringify(body || {}),
+        }
+      )
 
-    const resJson = await res.json()
-    setData(resJson)
-    if (res.status !== 200) {
-      setError(resJson)
+      const resJson = await res.json()
+      setData(resJson)
+      if (res.status !== 200) {
+        setError(resJson)
+      }
+    } catch (e) {
+      setError(e)
     }
 
     setLoading(false)

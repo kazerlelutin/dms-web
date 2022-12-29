@@ -1,5 +1,5 @@
 import { useTranslate } from '../../hooks/translate.hook'
-import { ShowCreatePopin } from '../../show/show-create-popin/show-create-popin'
+import { BroadcastCreatePopin } from '../../broadcast/broadcast-create-popin/broadcast-create-popin'
 import { Button } from '../../ui/button/button'
 import { Card } from '../../ui/card/card'
 import { Flex } from '../../ui/flex/flex'
@@ -33,7 +33,7 @@ export const Dashboard = () => {
               </ul>
             </Gridbox>
             <Flex spaceBetween>
-              <ShowCreatePopin />
+              <BroadcastCreatePopin />
               <Button>{t('see_all')}</Button>
             </Flex>
           </div>
