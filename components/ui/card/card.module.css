@@ -1,0 +1,76 @@
+.card {
+  background: var(--dms-card-bg);
+  font-size: 1rem;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.main {
+  padding: var(--dms-padding);
+  box-sizing: border-box;
+}
+
+.title {
+  border-radius: 5px 5px 0 0;
+  padding: var(--dms-padding);
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.close svg {
+  cursor: pointer;
+  fill: var(--dms-bg);
+  width: 20px;
+}
+
+.card[data-strech='true'],
+.card[data-strech='true'] .main {
+  height: 100%;
+  overflow: hidden;
+}
+
+.card[data-strech='true'] .main {
+  height: calc(100% - var(--dms-padding) * 4);
+  position: relative;
+  margin-bottom: var(--dms-padding);
+}
+
+.card[data-type='classic'] {
+  background: var(--dms-card-bg);
+}
+.card[data-type='classic'] .title {
+  background-color: var(--dms-card-dark);
+}
+
+.card[data-type='highlight'] .title {
+  background-color: var(--dms-highlight);
+}
+
+.card[data-type='info'] {
+  background: var(--dms-info-light);
+}
+
+.card[data-type='info'] .close svg {
+  cursor: pointer;
+  fill: var(--dms-info-light);
+  width: 20px;
+}
+
+.card[data-type='info'] .title {
+  background-color: var(--dms-info);
+}
+
+.card[data-type='warning'] {
+  background: var(--dms-warning-light);
+}
+
+.card[data-type='warning'] .close svg {
+  cursor: pointer;
+  fill: var(--dms-warning-light);
+  width: 20px;
+}
+
+.card[data-type='warning'] .title {
+  background-color: var(--dms-warning);
+}

@@ -1,0 +1,37 @@
+.container {
+  margin: var(--dms-padding) var(--dms-padding) 0 var(--dms-padding);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.links {
+  margin: 0;
+  list-style: none;
+  text-align: right;
+  display: flex;
+  justify-items: center;
+  justify-items: center;
+  align-items: center;
+  gap: var(--dms-gap);
+}
+
+.link {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.link a {
+  display: inline-block;
+  padding: 15px 10px;
+  text-decoration: none;
+}
+
+.link li a:hover {
+  text-decoration: underline;
+}

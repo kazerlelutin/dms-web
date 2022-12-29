@@ -1,0 +1,7 @@
+.container {
+  max-height: 75vh;
+  min-height: 30px;
+  overflow-y: auto;
+  min-width: 300px;
+  padding: var(--dms-padding);
+}

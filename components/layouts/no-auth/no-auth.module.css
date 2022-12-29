@@ -1,0 +1,20 @@
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--dms-gap);
+}
+
+.content {
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: var(--dms-gap);
+}

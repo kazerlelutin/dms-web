@@ -1,0 +1,36 @@
+.root {
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  background: black;
+  overflow: hidden;
+  border-width: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: var(--dms-card);
+}
+
+.root[data-size='avatar'] .img {
+  max-width: 30px;
+}
+
+.root[data-size='profile'] .img {
+  max-width: 75px;
+}
+
+.root[data-type='classic'] {
+  border-color: var(--dms-card-dark);
+}
+
+.root[data-type='highlight'] {
+  background-color: var(--dms-highlight-dark);
+}
+
+.root[data-type='info'] {
+  background: var(--dms-info);
+}
+
+.root[data-type='warning'] {
+  background: var(--dms-warning);
+}

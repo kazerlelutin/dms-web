@@ -1,0 +1,24 @@
+.button {
+  outline: none;
+  border: 1px solid var(--dms-text);
+  text-transform: uppercase;
+  background: none;
+  padding: 10px;
+  color: var(--dms-text);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.button[data-variant='normal'] {
+  background: var(--dms-info-light);
+  border-color: var(--dms-info);
+  color: var(--dms-text);
+}
+
+.button[data-variant='twitch'] {
+  background: var(--twitch-primary);
+}
+
+.button:disabled {
+  opacity: 0.5;
+}

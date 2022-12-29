@@ -1,0 +1,27 @@
+.chip {
+  font-size: 0.8em;
+  padding: 4px;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chip[data-cursor='true'] {
+  cursor: pointer;
+}
+
+.chip[data-type='classic'] {
+  background: var(--dms-card-dark);
+}
+
+.chip[data-type='highlight'] {
+  background-color: var(--dms-highlight);
+}
+
+.chip[data-type='info'] {
+  background: var(--dms-info-light);
+}
+
+.chip[data-type='warning'] {
+  background: var(--dms-warning-light);
+}

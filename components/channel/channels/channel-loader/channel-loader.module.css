@@ -1,0 +1,26 @@
+.root {
+  display: grid;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid var(--dms-card-dark);
+  text-align: initial;
+  animation: loading 1s ease-in-out alternate-reverse infinite;
+  background: rgb(167, 165, 165);
+  background: linear-gradient(
+    76deg,
+    rgba(167, 165, 165, 1) 0%,
+    var(--dms-card-dark) 22%,
+    var(--dms-card-dark) 79%,
+    rgba(167, 165, 165, 1) 100%
+  );
+}
+
+@keyframes loading {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}

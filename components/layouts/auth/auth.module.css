@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--dms-gap);
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  height: 100%;
+  gap: var(--dms-gap);
+  height: 100%;
+  padding: 0 var(--dms-padding) var(--dms-padding);
+}
+
+.header {
+  grid-column: 1/4;
+  width: 100%;
+}
+
+.chat {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--dms-gap);
+}

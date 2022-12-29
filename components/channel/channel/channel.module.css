@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  gap: calc(var(--dms-gap) / 2);
+  grid-template-columns: 1fr auto;
+  justify-items: start;
+  border-radius: 3px;
+  border: 1px solid var(--dms-card-dark);
+  padding: calc(var(--dms-padding) / 2);
+  text-align: initial;
+}
+
+.current {
+  font-size: 0.8em;
+  background: var(--dms-highlight);
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.delete {
+  font-size: 0.8em;
+  background: var(--dms-warning);
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.actions[data-active='true'] {
+  opacity: 0.5;
+}

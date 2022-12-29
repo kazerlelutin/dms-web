@@ -1,0 +1,11 @@
+.logo {
+  font-size: 1em;
+}
+
+.logoLink,
+.logoLink a,
+.logoLink a:visited,
+.logoLink a:-webkit-any-link {
+  color: var(--dms-text);
+  text-decoration: none;
+}

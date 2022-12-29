@@ -1,0 +1,25 @@
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dms-gap);
+}
+
+.center {
+  align-items: center;
+}
+
+.left {
+  align-items: flex-start;
+}
+
+.right {
+  align-items: flex-end;
+}
+
+.reverse {
+  flex-direction: column-reverse;
+}
+
+.smallGap {
+  gap: calc(var(--dms-gap) / 2);
+}

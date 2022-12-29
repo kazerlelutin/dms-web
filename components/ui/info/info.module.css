@@ -1,0 +1,7 @@
+.container {
+  border: 1px solid var(--dms-text);
+  padding: calc(var(--dms-padding) / 2);
+  color: var(--dms-text);
+  border-radius: 5px;
+  font-style: italic;
+}

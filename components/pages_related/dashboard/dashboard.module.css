@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    'show right'
+    'episode right'
+    'episode right';
+  gap: var(--dms-gap);
+  padding: 5px;
+  height: 100%;
+  align-items: stretch;
+}
+
+.right {
+  grid-area: right;
+}
+
+.show {
+  grid-area: show;
+}
+
+.episode {
+  grid-area: episode;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--dms-gap);
+  height: 100%;
+}
