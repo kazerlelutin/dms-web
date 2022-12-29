@@ -1,3 +1,4 @@
+import { FormEvent } from 'react'
 import { Factory } from '../../layouts/factory'
 import { useBroacastCreateForm } from './broadcast-create-form.hook'
 import { BroadcastCreateFormView } from './broadcast-create-form.view'
@@ -7,7 +8,7 @@ export interface BroadcastCreateFormResult {
   channel: string
   fields: { name: string; description: string }
   handleChange: (key: 'name' | 'description', value: string) => void
-  handleSubmit: () => void
+  handleSubmit: (e: FormEvent) => void
   loading: boolean
 }
 export const BroadcastCreateForm = Factory<unknown, BroadcastCreateFormResult>(

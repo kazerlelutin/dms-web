@@ -9,7 +9,7 @@ export const TwitchButton: FC = () => {
   const t = useTranslate({
     login_twitch: {
       fr: 'Connexion avec Twitch',
-      en: 'Connexion width Twitch',
+      en: 'Connexion with Twitch',
     },
   })
   const [params, setParams] = useState<Object | null>(null)
@@ -23,7 +23,8 @@ export const TwitchButton: FC = () => {
       scope:
         'channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user%3Aread%3Afollows+chat%3Aread+chat%3Aedit+openid',
     })
-  }, [setParams, l])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return params ? (
     <a
