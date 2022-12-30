@@ -29,7 +29,7 @@ export const useBroacastCreateForm = (): BroadcastCreateFormResult => {
   }
 
   useEffect(() => {
-    if (data) router.push('/dashboard/show/' + data)
+    if (data) router.push('/dashboard/broadcast/' + data)
   }, [data, router])
 
   return {

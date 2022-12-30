@@ -13,7 +13,5 @@ export default function HomePage() {
 export async function getServerSideProps({ req }) {
   // const session = await getSession({ req })
   const cookie = req.cookies[COOKIE_NAME]
-
-  console.log(cookie)
   return { props: { start: true } }
 }

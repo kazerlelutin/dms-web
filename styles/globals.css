@@ -31,7 +31,7 @@
 
 * {
   box-sizing: border-box;
-  scrollbar-color: var(--dms-info-light) var(--dms-info-light);
+  scrollbar-color: #0dacae #0dacae;
 }
 
 ::-webkit-scrollbar {
@@ -39,11 +39,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--dms-bg-dark);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--dms-info-light);
+  background: #0dacae;
   transition: 200ms ease-in-out;
   border-radius: 10px;
 }

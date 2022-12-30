@@ -10,6 +10,14 @@ interface Error {
   }
 }
 
+export interface FetchResult {
+  loading: boolean
+  error: Error
+  data: unknown
+  refetch: (body?: Object) => void
+  reSync: (body?: Object) => void
+}
+
 export function useFetch<T>(
   url: string,
   body: object = {}
@@ -32,22 +40,25 @@ export function useFetch<T>(
     setInProgress(true)
     if (!reSync) setLoading(true)
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/${url}`, {
-      method: 'POST',
-      signal: abortController.signal,
-      headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + session.token_api,
-      },
-      body: JSON.stringify(newBody || body || {}),
-    })
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/${url}`, {
+        method: 'POST',
+        signal: abortController.signal,
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + session.token_api,
+        },
+        body: JSON.stringify(newBody || body || {}),
+      })
 
-    const resJson = await res.json()
-    setData(resJson)
-    if (res.status !== 200) {
-      setError(resJson)
+      const resJson = await res.json()
+      setData(resJson)
+      if (res.status !== 200) {
+        setError(resJson)
+      }
+    } catch (e) {
+      setError(e)
     }
-
     if (!reSync) setLoading(false)
     setInProgress(false)
   }

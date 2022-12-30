@@ -5,6 +5,8 @@ import { Card } from '../../ui/card/card'
 import { Flex } from '../../ui/flex/flex'
 import { Gridbox } from '../../ui/grid-box/grid-box'
 import styles from './dashboard.module.css'
+import Link from 'next/link'
+import { BroadcastList } from '../../broadcast/broadcast-list/broadcast-list'
 
 export const Dashboard = () => {
   const t = useTranslate()
@@ -15,26 +17,17 @@ export const Dashboard = () => {
         <Card title="émissions" type="info" strech>
           <div className={styles.grid}>
             <Gridbox>
-              <ul>
-                <li>Chronique peuvent être attachées</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li> <li>di</li>
-                <li>di</li>
-                <li>Chronique peuvent être attachées</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li>
-                <li>di</li> <li>di</li>
-                <li>di</li>
-              </ul>
+              <BroadcastList />
             </Gridbox>
             <Flex spaceBetween>
               <BroadcastCreatePopin />
-              <Button>{t('see_all')}</Button>
+              <Link
+                href={{
+                  query: { page: 'broadcast' },
+                }}
+              >
+                <Button>{t('see_all')}</Button>
+              </Link>
             </Flex>
           </div>
         </Card>

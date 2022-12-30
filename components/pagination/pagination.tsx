@@ -7,11 +7,13 @@ export type PaginationProps = {
   children: ReactNode
 }
 
+export interface PaginationFetch {
+  currentPage: number
+  totalPage: number
+}
+
 export type PaginationResults = {
-  pagination: {
-    currentPage: number
-    totalPage: number
-  }
+  pagination: PaginationFetch
   next: () => void
   previous: () => void
   setPage: (currentPage: number) => void
