@@ -4,6 +4,7 @@ import { Flex } from '../../ui/flex/flex'
 import { Chip } from '../../ui/chip/chip'
 import Link from 'next/link'
 import styles from './broadcast-line.module.css'
+import { Pages } from '../../../types/pages.enum'
 
 interface BroadcastLineProps {
   broadcast: BroadcastType
@@ -14,7 +15,10 @@ export const BroadcastLine: FC<BroadcastLineProps> = ({ broadcast }) => (
     {broadcast.name}
     <Link
       href={{
-        query: { broadcast: broadcast.id },
+        query: {
+          page: Pages.broadcastDetail,
+          broadcast: broadcast.id,
+        },
       }}
       className={styles.link}
     >

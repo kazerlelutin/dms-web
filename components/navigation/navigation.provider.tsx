@@ -1,25 +1,35 @@
-import { ReactNode, useState, useEffect } from 'react'
+import { useState } from 'react'
 import { NavigationContext } from './navigation.context'
 import { useRouter } from 'next/router'
-import { Broadcasts } from '../panels/broadcasts/broadcasts'
-import { Broadcast } from '../panels/broadcast/broadcast'
+import { Pages } from '../../types/pages.enum'
+import { Dashboard } from '../panels/dashboard/dashboard'
+import { Shows } from '../panels/shows/shows'
 
-interface NavigationProviderProps {
-  children: ReactNode
-}
-
-export const NavigationProvider: React.FC<NavigationProviderProps> = ({
-  children,
-}) => {
+export const NavigationProvider: React.FC = () => {
   const router = useRouter()
   const ctx = useState<string>()
 
-  if (router.query?.page === 'broadcast') return <Broadcasts />
-  if (router.query?.broadcast) return <Broadcast />
+  const navigate = (page: Pages) =>
+    router.push({
+      query: {
+        page,
+      },
+    })
 
+  const current =
+    router?.query?.page && typeof router.query.page === 'string'
+      ? router.query.page
+      : 'dashboard'
+
+  const Component = () => {
+    if (current === Pages.dashboard) return <Dashboard />
+    if (current === Pages.shows) return <Shows />
+
+    return <Dashboard />
+  }
   return (
-    <NavigationContext.Provider value={ctx}>
-      {children}
+    <NavigationContext.Provider value={{ navigate, current }}>
+      <Component />
     </NavigationContext.Provider>
   )
 }

@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  gap: calc(var(--dms-gap) / 2);
+}
+
+.container a {
+  color: var(--dms-text);
+}
+
+.container a::first-letter {
+  text-transform: uppercase;
+}
+
+.container a:not(.container a:last-child):nth-child(n):after {
+  content: ' / ';
+  padding-right: 3px;
+  color: var(--dms-highlight);
+}

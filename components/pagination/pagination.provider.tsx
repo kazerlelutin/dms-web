@@ -8,6 +8,8 @@ type PaginationProviderProps = {
 type PaginationProviderState = {
   currentPage: number
   totalPage: number
+  cursor: string | number | undefined
+  perPage: number
 }
 
 export const PaginationProvider: React.FC<PaginationProviderProps> = ({
@@ -16,6 +18,8 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({
   const [pagination, setPagination] = useState<PaginationProviderState>({
     currentPage: 1,
     totalPage: 1,
+    cursor: undefined,
+    perPage: 50,
   })
 
   const state = {

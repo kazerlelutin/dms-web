@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PaginationContext } from './pagination.context'
 import { PaginationFetch } from './pagination'
 
@@ -17,8 +17,8 @@ export const usePaginationSetter = ({
   const { pagination, setTotal, setPage } = useContext(PaginationContext)
 
   useEffect(() => {
-    if (!loading && pagination?.currentPage <= data?.totalPage) {
-      refetch({ page: 1 })
+    if (!loading && pagination.perPage === data?.totalPage) {
+      refetch({ cursor: pagination.cursor })
       setPage(1)
     }
   }, [pagination.currentPage])

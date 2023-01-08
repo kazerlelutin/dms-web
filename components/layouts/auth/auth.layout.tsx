@@ -14,10 +14,9 @@ import styles from './auth.module.css'
 
 interface AuthLayoutProps {
   session: Session
-  children: ReactNode
 }
 
-export const AuthLayout: FC<AuthLayoutProps> = ({ session, children }) => (
+export const AuthLayout: FC<AuthLayoutProps> = ({ session }) => (
   <SessionProvider session={session}>
     <ChannelProvider channel={session.current_channel}>
       <ChatProvider>
@@ -28,20 +27,22 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ session, children }) => (
               <div className={styles.aside}>
                 <Gridbox>
                   <Col>
-                    <Card title="Medias">mes medias</Card>
+                    <Card title="Medias" type="classic">
+                      mes medias
+                    </Card>
                   </Col>
                 </Gridbox>
               </div>
-              <NavigationProvider>
-                <main className={styles.main}>{children}</main>
-              </NavigationProvider>
+              <main className={styles.main}>
+                <NavigationProvider />
+              </main>
               <div className={styles.chat}>
                 <Gridbox>
                   <Chat />
                 </Gridbox>
                 <ChatForm />
                 <div className="sm">
-                  <Card title="Messages enregistrés">
+                  <Card title="Messages enregistrés" type="classic">
                     Les messages pré-écrits
                   </Card>
                 </div>

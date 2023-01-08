@@ -10,7 +10,7 @@ export const useTranslate = (translateJson?: Object) => {
   return (text: string): string => {
     const translateTxt = translate[text]
     if (translateTxt) {
-      return translateTxt[locale] || text
+      return translateTxt[locale || 'fr'] || text
     } else {
       return text
     }

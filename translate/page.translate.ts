@@ -46,6 +46,10 @@ const pageTranslate = {
     en: 'create the show',
     fr: "créer l'emission",
   },
+  show: {
+    en: 'show',
+    fr: 'émission',
+  },
   show_name: {
     en: 'Show name',
     fr: "Nom de l'émission",
@@ -53,6 +57,10 @@ const pageTranslate = {
   add_desc: {
     fr: 'Ajouter une description',
     en: 'Add description',
+  },
+  no_result: {
+    fr: 'Aucun résultat',
+    en: 'No result',
   },
 }
 

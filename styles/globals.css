@@ -123,7 +123,7 @@ input:focus {
   text-transform: lowercase;
 }
 
-.card-separate:not(.card .card-separate:last-child) {
+.card-separate:not(.card-separate:last-child) {
   border-bottom: 1px solid var(--dms-bg);
   --card-separate-margin: calc(
     var(--dms-padding) - var(--dms-padding) - var(--dms-padding)
@@ -131,4 +131,5 @@ input:focus {
   padding: var(--dms-padding);
   margin-left: var(--card-separate-margin);
   margin-right: var(--card-separate-margin);
+  width: calc(100% - var(--card-separate-margin) * 2 - var(--dms-padding) * 2);
 }

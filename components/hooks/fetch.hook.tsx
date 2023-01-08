@@ -2,38 +2,32 @@ import { useContext, useEffect, useState } from 'react'
 import { MiniLoaderContext } from '../mini-loader/mini-loader.context'
 import { SessionContext } from '../session/session.context'
 
-interface Error {
+export interface Error {
   message: string
   response: {
     status: number
     data: string
   }
 }
-
-export interface FetchResult {
-  loading: boolean
+export type FetchResult<T> = {
+  refetch: (newBody?: object) => void
+  reSync: (newBody?: object) => void
+  data: T
   error: Error
-  data: unknown
-  refetch: (body?: Object) => void
-  reSync: (body?: Object) => void
+  loading: boolean
 }
 
-export function useFetch<T>(
-  url: string,
-  body: object = {}
-): {
-  loading: boolean
-  error: Error
-  data: T
-  refetch: (body?: Object) => void
-  reSync: (body?: Object) => void
-} {
+export function useFetch<T>(url: string, body: object = {}): FetchResult<T> {
   const [data, setData] = useState<T>(),
     [error, setError] = useState<Error>(),
     [inProgress, setInProgress] = useState<boolean>(false),
     [loading, setLoading] = useContext(MiniLoaderContext),
     session = useContext(SessionContext),
-    abortController = new AbortController()
+    [abort, setAbort] = useState<AbortController>()
+
+  useEffect(() => {
+    setAbort(new AbortController())
+  }, [])
 
   async function handleFetch(newBody?: object, reSync?: boolean) {
     if (inProgress) return
@@ -43,7 +37,7 @@ export function useFetch<T>(
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/${url}`, {
         method: 'POST',
-        signal: abortController.signal,
+        signal: abort.signal,
         headers: {
           Accept: 'application/json',
           Authorization: 'Bearer ' + session.token_api,
@@ -64,6 +58,7 @@ export function useFetch<T>(
   }
 
   useEffect(() => {
+    if (!abort) return
     //timeout for prevent preload page
     setTimeout(() => {
       if (!data) handleFetch()
@@ -71,10 +66,10 @@ export function useFetch<T>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return () => {
-      if (inProgress) abortController.abort('cleanup')
+      if (inProgress) abort.abort('cleanup')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [abort])
 
   return {
     refetch: (newBody?: object) => handleFetch(newBody),

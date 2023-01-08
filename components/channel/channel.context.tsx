@@ -1,2 +1,3 @@
 import { createContext } from 'react'
-export const ChannelContext = createContext(null)
+
+export const ChannelContext = createContext<string>(null)

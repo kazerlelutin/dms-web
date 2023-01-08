@@ -12,6 +12,7 @@ export interface Session {
   offline_image_url: string
   display_name: string
   id: string
+  twitch_id: string
   description: string
   broadcaster_type: string
   view_count: number

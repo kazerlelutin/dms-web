@@ -1,2 +1,9 @@
 import { createContext } from 'react'
-export const ChannelsContext = createContext(null)
+import { FetchResult } from '../../hooks/fetch.hook'
+
+export const ChannelsContext = createContext<
+  FetchResult<{
+    pagination: Object
+    channels: { name: string; channel: string }[]
+  }>
+>(null)

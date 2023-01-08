@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Breadcrumb } from '../breadcrumb/breadcrumb'
 import { ChannelButton } from '../channel/channel-button/channel-button'
 import { Avatar } from '../ui/avatar/avatar'
 import { Card } from '../ui/card/card'
@@ -12,6 +13,7 @@ export const HeaderView: FC<HeaderResult> = ({ session }) => (
       <header className={styles.header}>
         <DmsLogo />
 
+        <Breadcrumb />
         <ul className={styles.links}>
           <li className={styles.link}>
             <ChannelButton />
